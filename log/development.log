@@ -197,3 +197,43 @@ Processing by TweetsController#index as HTML
 Completed 200 OK in 25ms (Views: 23.7ms | ActiveRecord: 0.3ms | Allocations: 4749)
 
 
+Started GET "/tweets/1/edit" for ::1 at 2021-08-19 00:46:49 +0300
+Processing by TweetsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:63:in `set_tweet'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/edit.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 2.1ms | Allocations: 547)
+  Rendered tweets/edit.html.erb within layouts/application (Duration: 6.1ms | Allocations: 802)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 3782)
+Completed 200 OK in 23ms (Views: 15.3ms | ActiveRecord: 0.2ms | Allocations: 4833)
+
+
+Started GET "/tweets" for ::1 at 2021-08-19 00:46:50 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:14
+  Rendered tweets/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 802)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 3782)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.2ms | Allocations: 4177)
+
+
+Started GET "/tweets" for ::1 at 2021-08-19 01:36:18 +0300
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:14
+  Rendered tweets/index.html.erb within layouts/application (Duration: 47.0ms | Allocations: 3748)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 1316.4ms | Allocations: 120802)
+Completed 200 OK in 1384ms (Views: 1351.1ms | ActiveRecord: 1.1ms | Allocations: 123660)
+
+
