@@ -237,3 +237,67 @@ Processing by TweetsController#index as HTML
 Completed 200 OK in 1384ms (Views: 1351.1ms | ActiveRecord: 1.1ms | Allocations: 123660)
 
 
+Started GET "/tweets/new" for ::1 at 2021-08-19 01:40:29 +0300
+Processing by TweetsController#new as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tweets_controller.rb:16:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/new.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 96.6ms | Allocations: 2471)
+  Rendered tweets/new.html.erb within layouts/application (Duration: 98.1ms | Allocations: 2818)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 108.2ms | Allocations: 6116)
+Completed 200 OK in 126ms (Views: 109.5ms | ActiveRecord: 1.9ms | Allocations: 9748)
+
+
+Started GET "/tweets" for ::1 at 2021-08-19 01:40:36 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.7ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:14
+  Rendered tweets/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 835)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 4144)
+Completed 200 OK in 21ms (Views: 18.8ms | ActiveRecord: 0.7ms | Allocations: 4561)
+
+
+Started GET "/tweets/1" for ::1 at 2021-08-19 01:40:38 +0300
+Processing by TweetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:63:in `set_tweet'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/show.html.erb within layouts/application
+  Rendered tweets/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 241)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 3555)
+Completed 200 OK in 20ms (Views: 13.1ms | ActiveRecord: 0.3ms | Allocations: 5065)
+
+
+Started GET "/tweets/1/edit" for ::1 at 2021-08-19 01:40:41 +0300
+Processing by TweetsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:63:in `set_tweet'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/edit.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 2.4ms | Allocations: 547)
+  Rendered tweets/edit.html.erb within layouts/application (Duration: 3.8ms | Allocations: 805)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 4134)
+Completed 200 OK in 18ms (Views: 13.7ms | ActiveRecord: 0.2ms | Allocations: 5194)
+
+
+Started GET "/tweets" for ::1 at 2021-08-19 01:40:43 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:14
+  Rendered tweets/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 816)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 4132)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.2ms | Allocations: 4538)
+
+
