@@ -1675,3 +1675,144 @@ Processing by TweetsController#index as HTML
 Completed 200 OK in 31ms (Views: 24.8ms | ActiveRecord: 1.0ms | Allocations: 8363)
 
 
+Started GET "/" for ::1 at 2021-08-21 16:26:24 +0300
+Processing by TweetsController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tweets_controller.rb:8:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_trends.html.erb (Duration: 0.4ms | Allocations: 81)
+  Rendered tweets/_feed.html.erb (Duration: 50.9ms | Allocations: 4177)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 54.1ms | Allocations: 4814)
+  Rendered layout layouts/application.html.erb (Duration: 54.5ms | Allocations: 4911)
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 0.9ms | Allocations: 6731)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <div class="column is-half">
+  <article class="media box">
+    <figure class="media-left">
+      <p class="image is-64x64">
+        <img src="https://bulma.io/images/placeholders/64x64.png">
+      </p>
+    </figure>
+    <div class="media-content">
+      <%= render 'tweets/form %>
+    </div>
+  </article>
+</div>
+    <% @tweets.each do |tweet| %>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image is-64x64">
+              <img src="https://bulma.io/images/placeholders/64x64.png">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <strong>Oksana Petrova</strong><br />
+              <small>@opetrova</small><br />
+              <p><%= tweet.tweet %></p>
+            </div>
+              <div class="level">
+                <div class="level-left is-mobile">
+                  <%= link_to tweet, class: "level-item" do %>
+                    <span class="icon">
+                      <i class="fa fa-link" aria-hidden="true"></i>
+                    </span>
+                  <% end %>
+                  <%= link_to edit_tweet_path(tweet), class: "level-item" do %>
+                  <span class="icon">
+                      <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </span>
+                  <% end %>
+                  <%= link_to tweet, method: :delete, data: { confirm: 'Are you sure want to delete this tweet?'} do %>
+                  <span class="icon">
+                      <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    </span>
+                  <% end %>
+                </div>
+              </div>
+           </div>
+        </article>
+      </div>
+    <% end %>:
+  app/views/tweets/index.html.erb:5
+
+Started POST "/__better_errors/edb450ef40a8c4ad/variables" for ::1 at 2021-08-21 16:26:25 +0300
+Started POST "/__better_errors/edb450ef40a8c4ad/variables" for ::1 at 2021-08-21 16:26:51 +0300
+Started GET "/" for ::1 at 2021-08-21 16:27:58 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_trends.html.erb (Duration: 0.4ms | Allocations: 81)
+  Rendered tweets/_form.html.erb (Duration: 271.2ms | Allocations: 14196)
+  Rendered tweets/_feed.html.erb (Duration: 273.4ms | Allocations: 14718)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 277.2ms | Allocations: 15349)
+  Rendered layout layouts/application.html.erb (Duration: 277.5ms | Allocations: 15444)
+Completed 500 Internal Server Error in 283ms (ActiveRecord: 0.0ms | Allocations: 16625)
+
+
+
+NoMethodError - undefined method `model_name' for nil:NilClass:
+  app/views/tweets/_form.html.erb:1
+  app/views/tweets/_feed.html.erb:9
+  app/views/tweets/index.html.erb:5
+
+Started POST "/__better_errors/3de806389f53a543/variables" for ::1 at 2021-08-21 16:27:59 +0300
+Started GET "/" for ::1 at 2021-08-21 16:29:27 +0300
+Processing by TweetsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tweets_controller.rb:8:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_trends.html.erb (Duration: 0.1ms | Allocations: 6)
+  Rendered tweets/_form.html.erb (Duration: 4.0ms | Allocations: 2306)
+  Rendered tweets/_feed.html.erb (Duration: 4.4ms | Allocations: 2399)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2576)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 2672)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 1.6ms | Allocations: 6091)
+
+
+
+NoMethodError - undefined method `error_notifications' for #<SimpleForm::FormBuilder:0x00005618838b2350>
+Did you mean?  error_notification:
+  app/views/tweets/_form.html.erb:2
+  app/views/tweets/_form.html.erb:1
+  app/views/tweets/_feed.html.erb:9
+  app/views/tweets/index.html.erb:5
+
+Started POST "/__better_errors/5b4ac407af32184a/variables" for ::1 at 2021-08-21 16:29:27 +0300
+Started GET "/" for ::1 at 2021-08-21 16:30:14 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_trends.html.erb (Duration: 0.5ms | Allocations: 81)
+  Rendered tweets/_form.html.erb (Duration: 206.7ms | Allocations: 8043)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  Rendered tweets/_feed.html.erb (Duration: 212.1ms | Allocations: 9382)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.3ms | Allocations: 125)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 216.3ms | Allocations: 10352)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 227.6ms | Allocations: 14670)
+Completed 200 OK in 233ms (Views: 229.7ms | ActiveRecord: 0.3ms | Allocations: 15897)
+
+
+Started GET "/" for ::1 at 2021-08-21 16:35:38 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_trends.html.erb (Duration: 0.4ms | Allocations: 81)
+  Rendered tweets/_form.html.erb (Duration: 10.9ms | Allocations: 3074)
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  Rendered tweets/_feed.html.erb (Duration: 17.5ms | Allocations: 4409)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.9ms | Allocations: 125)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 24.8ms | Allocations: 5379)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 35.0ms | Allocations: 9657)
+Completed 200 OK in 41ms (Views: 38.6ms | ActiveRecord: 0.4ms | Allocations: 10888)
+
+
