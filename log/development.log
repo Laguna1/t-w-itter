@@ -2057,3 +2057,237 @@ Migrating to AddFieldsToUsers (20210821171808)
   [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/sign_up" for ::1 at 2021-08-21 20:39:42 +0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 18.2ms | Allocations: 1570)
+  Rendered layout layouts/application.html.erb (Duration: 18.9ms | Allocations: 1668)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 0.0ms | Allocations: 8400)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <div class="section">
+  <div class="container">
+    <div class="columns is-centered">
+        <h2>Sign up</h2>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+      <div class="field">
+        <div class="control">  
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true, input_html: { class: "input" }, wrapper: false, label_html: { class: "label" } %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <%= f.input :password,
+                      required: true, input_html: { class: "input" }, wrapper: false, label_html: { class: "label" }
+                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">   
+          <%= f.input :password_confirmation,
+                      required: true, input_html: { class: "input" }, wrapper: false, label_html: { class: "label" } %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <%= f.button :submit, "Sign up", class: "button is-info is-medium" %>
+        </div>
+      </div>
+        <% end %>
+          <br />
+          <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>:
+
+Started POST "/__better_errors/e58b9fb1c975f48e/variables" for ::1 at 2021-08-21 20:39:43 +0300
+Started GET "/users/sign_up" for ::1 at 2021-08-21 20:41:24 +0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.8ms | Allocations: 1674)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 1779)
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 1.6ms | Allocations: 12603)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <div class="section">
+  <div class="container">
+    <div class="columns is-centered">
+       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <div class="field">
+          <div class="control">  
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true, input_html: { class: "input" }, wrapper: false, label_html: { class: "label" } %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <%= f.input :password,
+                        required: true, input_html: { class: "input" }, wrapper: false, label_html: { class: "label" }
+                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+          </div>
+        </div>
+      <div class="field">
+        <div class="control">   
+          <%= f.input :password_confirmation,
+                      required: true, input_html: { class: "input" }, wrapper: false, label_html: { class: "label" } %>
+        </div>
+      </div>
+        <div class="field">
+          <div class="control">
+            <%= f.button :submit, "Sign up", class: "button is-info is-medium" %>
+          </div>
+        </div>
+        <% end %>
+          <br />
+          <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>:
+
+Started POST "/__better_errors/83b2d588aa423320/variables" for ::1 at 2021-08-21 20:41:24 +0300
+Started GET "/users/sign_up" for ::1 at 2021-08-21 20:47:14 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1368)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 1467)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 3109)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <div class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-4">
+      <h2 class="title is-2">Sign Up</h2>
+       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <div class="field">
+	  	    <div class="control">
+	          <%= f.input :name, required: true, autofocus: true, input_html: { class:"input" }, wrapper: false, label_html: { class:"label" } %>
+	      	</div>
+	    	</div>
+	    	<div class="field">
+	      	<div class="control">
+	          <%= f.input :username, required: true, input_html: { class:"input" }, wrapper: false, label_html: { class:"label" } %>
+	      	</div>
+	    	</div>
+        <div class="field">
+          <div class="control">  
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true, input_html: { class: "input" }, wrapper: false, label_html: { class: "label" } %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <%= f.input :password,
+                        required: true, input_html: { class: "input" }, wrapper: false, label_html: { class: "label" }
+                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+          </div>
+        </div>
+      <div class="field">
+        <div class="control">   
+          <%= f.input :password_confirmation,
+                      required: true, input_html: { class: "input" }, wrapper: false, label_html: { class: "label" } %>
+        </div>
+      </div>
+        <div class="field">
+          <div class="control">
+            <%= f.button :submit, "Sign up", class: "button is-info is-medium" %>
+          </div>
+        </div>
+        <% end %>
+          <br />
+          <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>:
+
+Started POST "/__better_errors/728811f77e86cd38/variables" for ::1 at 2021-08-21 20:47:15 +0300
+Started GET "/users/sign_up" for ::1 at 2021-08-21 20:47:17 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1355)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 1453)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 1955)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <div class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-4">
+      <h2 class="title is-2">Sign Up</h2>
+       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <div class="field">
+	  	    <div class="control">
+	          <%= f.input :name, required: true, autofocus: true, input_html: { class:"input" }, wrapper: false, label_html: { class:"label" } %>
+	      	</div>
+	    	</div>
+	    	<div class="field">
+	      	<div class="control">
+	          <%= f.input :username, required: true, input_html: { class:"input" }, wrapper: false, label_html: { class:"label" } %>
+	      	</div>
+	    	</div>
+        <div class="field">
+          <div class="control">  
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true, input_html: { class: "input" }, wrapper: false, label_html: { class: "label" } %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <%= f.input :password,
+                        required: true, input_html: { class: "input" }, wrapper: false, label_html: { class: "label" }
+                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+          </div>
+        </div>
+      <div class="field">
+        <div class="control">   
+          <%= f.input :password_confirmation,
+                      required: true, input_html: { class: "input" }, wrapper: false, label_html: { class: "label" } %>
+        </div>
+      </div>
+        <div class="field">
+          <div class="control">
+            <%= f.button :submit, "Sign up", class: "button is-info is-medium" %>
+          </div>
+        </div>
+        <% end %>
+          <br />
+          <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>:
+
+Started POST "/__better_errors/85620c0c21d3c950/variables" for ::1 at 2021-08-21 20:47:17 +0300
+Started GET "/users/sign_up" for ::1 at 2021-08-21 20:47:47 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 13.9ms | Allocations: 495)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 351.2ms | Allocations: 21348)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 1380.7ms | Allocations: 28121)
+Completed 200 OK in 1387ms (Views: 1385.1ms | Allocations: 29785)
+
+
