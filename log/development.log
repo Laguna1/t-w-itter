@@ -1958,3 +1958,87 @@ Migrating to DeviseCreateUsers (20210821150511)
   [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/sign_up" for ::1 at 2021-08-21 18:09:30 +0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 34.2ms | Allocations: 4238)
+  Rendered layout layouts/application.html.erb (Duration: 35.6ms | Allocations: 4334)
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 1.8ms | Allocations: 11842)
+
+
+
+NoMethodError - undefined method `registration_path' for #<ActionView::Base:0x0000000000e920>:
+  app/views/devise/registrations/new.html.erb:3
+
+Started POST "/__better_errors/eb5bba6a8511a0c9/variables" for ::1 at 2021-08-21 18:09:30 +0300
+Started GET "/users/sign_up" for ::1 at 2021-08-21 18:10:08 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 17.8ms | Allocations: 495)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 653.6ms | Allocations: 15958)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 979.5ms | Allocations: 22804)
+Completed 200 OK in 1042ms (Views: 1008.2ms | ActiveRecord: 1.3ms | Allocations: 33068)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-21 18:10:14 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 183)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 107.0ms | Allocations: 9354)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 116.0ms | Allocations: 13320)
+Completed 200 OK in 175ms (Views: 118.8ms | ActiveRecord: 0.0ms | Allocations: 15102)
+
+
+Started GET "/users/password/new" for ::1 at 2021-08-21 18:10:17 +0300
+Processing by Devise::PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 120)
+  Rendered devise/passwords/new.html.erb within layouts/application (Duration: 48.9ms | Allocations: 3531)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 55.8ms | Allocations: 7454)
+Completed 200 OK in 60ms (Views: 58.1ms | ActiveRecord: 0.0ms | Allocations: 8601)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-08-21 18:10:20 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 71)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 20.3ms | Allocations: 6483)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 34.0ms | Allocations: 10421)
+Completed 200 OK in 36ms (Views: 35.1ms | ActiveRecord: 0.0ms | Allocations: 10952)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-21 18:10:21 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 116)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 37.7ms | Allocations: 9144)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 50.3ms | Allocations: 13080)
+Completed 200 OK in 53ms (Views: 51.2ms | ActiveRecord: 0.0ms | Allocations: 13663)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-08-21 18:11:45 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 70)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 23.9ms | Allocations: 7048)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 35.3ms | Allocations: 10980)
+Completed 200 OK in 38ms (Views: 36.7ms | ActiveRecord: 0.0ms | Allocations: 11510)
+
+
