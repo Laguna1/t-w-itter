@@ -6186,3 +6186,55 @@ Processing by TweetsController#index as HTML
 Completed 200 OK in 152ms (Views: 144.6ms | ActiveRecord: 5.9ms | Allocations: 22974)
 
 
+Started GET "/tweets" for ::1 at 2021-09-24 00:25:59 +0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 5.9ms | Allocations: 1573)
+  Rendered tweets/_form.html.erb (Duration: 12.5ms | Allocations: 2917)
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 8], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:17:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 8]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:17:in `like_or_dislike_btn'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 7]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:17:in `like_or_dislike_btn'
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 6]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:17:in `like_or_dislike_btn'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 5]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 4], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:17:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 4]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  Rendered tweets/_feed.html.erb (Duration: 142.5ms | Allocations: 21190)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.4ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 192.8ms | Allocations: 30161)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 208.3ms | Allocations: 34285)
+Completed 200 OK in 233ms (Views: 200.0ms | ActiveRecord: 13.3ms | Allocations: 38008)
+
+
