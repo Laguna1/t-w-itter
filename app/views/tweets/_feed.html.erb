@@ -26,7 +26,9 @@
   				<p><%= tweet.tweet %></p>
   				<p class='tweet-liking'>
                   <%= like_or_dislike_btn(tweet) %>
-				</p>
+				  <strong><%= tweet.likes.count %></strong>
+			    </p>
+				
 
   			</div>
 	   
