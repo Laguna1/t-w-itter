@@ -5601,3 +5601,2466 @@ Processing by TweetsController#show as HTML
 Completed 200 OK in 255ms (Views: 198.7ms | ActiveRecord: 50.0ms | Allocations: 5916)
 
 
+  [1m[35m (12.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLikes (20210923143652)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_likes_on_post_id" ON "likes" ("post_id")[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLikes (20210923143652)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_likes_on_tweet_id" ON "likes" ("tweet_id")[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (12.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLikes (20210923143652)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (73.2ms)[0m  [1m[35mCREATE TABLE "likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "tweet_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_1e09b5dabf"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_d994727f92"
+FOREIGN KEY ("tweet_id")
+  REFERENCES "tweets" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_likes_on_user_id" ON "likes" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_likes_on_tweet_id" ON "likes" ("tweet_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210923143652"]]
+  [1m[36mTRANSACTION (601.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2021-09-23 19:41:48 +0300
+  [1m[35m (12.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (19.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (18.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 277.2ms | Allocations: 3310)
+  Rendered tweets/_form.html.erb (Duration: 1437.9ms | Allocations: 11318)
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  Rendered tweets/_feed.html.erb (Duration: 1587.9ms | Allocations: 17346)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 23.1ms | Allocations: 127)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 2058.1ms | Allocations: 29659)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8774.2ms | Allocations: 37908)
+Completed 200 OK in 9740ms (Views: 8947.3ms | ActiveRecord: 40.2ms | Allocations: 44331)
+
+
+Started GET "/tweets/7" for ::1 at 2021-09-23 19:42:43 +0300
+Processing by TweetsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:71:in `set_tweet'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/show.html.erb within layouts/application
+  Rendered tweets/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 200)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:45
+  Rendered layout layouts/application.html.erb (Duration: 42.5ms | Allocations: 5121)
+Completed 200 OK in 50ms (Views: 44.2ms | ActiveRecord: 0.7ms | Allocations: 6312)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 19:42:45 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 12.9ms | Allocations: 909)
+  Rendered tweets/_form.html.erb (Duration: 6.6ms | Allocations: 2939)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  Rendered tweets/_feed.html.erb (Duration: 21.6ms | Allocations: 7374)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 41.9ms | Allocations: 9419)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 48.9ms | Allocations: 13413)
+Completed 200 OK in 51ms (Views: 48.6ms | ActiveRecord: 1.4ms | Allocations: 13860)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 19:48:44 +0300
+Processing by TweetsController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tweets_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (40.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (20.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 65.9ms | Allocations: 1076)
+  Rendered tweets/_form.html.erb (Duration: 62.9ms | Allocations: 3096)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  Rendered tweets/_feed.html.erb (Duration: 3107.2ms | Allocations: 10681)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 3231.2ms | Allocations: 13287)
+  Rendered layout layouts/application.html.erb (Duration: 3231.8ms | Allocations: 13383)
+Completed 500 Internal Server Error in 3392ms (ActiveRecord: 63.3ms | Allocations: 15226)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"like", :controller=>"tweets", :id=>nil}, missing required keys: [:id]:
+  app/views/tweets/_feed.html.erb:32
+  app/views/tweets/_feed.html.erb:14
+  app/views/tweets/index.html.erb:10
+
+Started POST "/__better_errors/c757f109f3f5446b/variables" for ::1 at 2021-09-23 19:48:49 +0300
+Started GET "/tweets" for ::1 at 2021-09-23 19:52:22 +0300
+Processing by TweetsController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tweets_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (41.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (37.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 40.8ms | Allocations: 1573)
+  Rendered tweets/_form.html.erb (Duration: 5.2ms | Allocations: 2878)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  Rendered tweets/_feed.html.erb (Duration: 64.6ms | Allocations: 7622)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 170.7ms | Allocations: 16511)
+  Rendered layout layouts/application.html.erb (Duration: 171.4ms | Allocations: 16607)
+Completed 500 Internal Server Error in 386ms (ActiveRecord: 84.5ms | Allocations: 21003)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"like", :controller=>"tweets", :id=>nil}, missing required keys: [:id]:
+  app/views/tweets/_feed.html.erb:32
+  app/views/tweets/_feed.html.erb:14
+  app/views/tweets/index.html.erb:10
+
+Started POST "/__better_errors/93e46a383c3e2734/variables" for ::1 at 2021-09-23 19:52:27 +0300
+  [1m[35m (12.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveForeignKeys (20210923165548)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (87.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "alikes" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "tweet_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_alikes_on_tweet_id" ON "alikes" ("tweet_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_alikes_on_user_id" ON "alikes" ("user_id")[0m
+  [1m[35m (15.5ms)[0m  [1m[32mINSERT INTO "alikes" ("id","user_id","tweet_id","created_at","updated_at")
+                     SELECT "id","user_id","tweet_id","created_at","updated_at" FROM "likes"[0m
+  [1m[35m (34.6ms)[0m  [1m[35mDROP TABLE "likes"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "likes" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "tweet_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_1e09b5dabf"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_likes_on_user_id" ON "likes" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_likes_on_tweet_id" ON "likes" ("tweet_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "likes" ("id","user_id","tweet_id","created_at","updated_at")
+                     SELECT "id","user_id","tweet_id","created_at","updated_at" FROM "alikes"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "alikes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "alikes" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "tweet_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_alikes_on_tweet_id" ON "alikes" ("tweet_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_alikes_on_user_id" ON "alikes" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "alikes" ("id","user_id","tweet_id","created_at","updated_at")
+                     SELECT "id","user_id","tweet_id","created_at","updated_at" FROM "likes"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "likes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "likes" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "tweet_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_likes_on_user_id" ON "likes" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_likes_on_tweet_id" ON "likes" ("tweet_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "likes" ("id","user_id","tweet_id","created_at","updated_at")
+                     SELECT "id","user_id","tweet_id","created_at","updated_at" FROM "alikes"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "alikes"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210923165548"]]
+  [1m[36mTRANSACTION (148.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/tweets" for ::1 at 2021-09-23 19:56:43 +0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 5.3ms | Allocations: 1573)
+  Rendered tweets/_form.html.erb (Duration: 6.8ms | Allocations: 2881)
+  [1m[36mTweet Load (1.0ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  Rendered tweets/_feed.html.erb (Duration: 24.9ms | Allocations: 7624)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 65.0ms | Allocations: 16509)
+  Rendered layout layouts/application.html.erb (Duration: 66.0ms | Allocations: 16604)
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 5.0ms | Allocations: 20277)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"like", :controller=>"tweets", :id=>nil}, missing required keys: [:id]:
+  app/views/tweets/_feed.html.erb:32
+  app/views/tweets/_feed.html.erb:14
+  app/views/tweets/index.html.erb:10
+
+Started POST "/__better_errors/df644bf2f6d396e7/variables" for ::1 at 2021-09-23 19:56:43 +0300
+Started GET "/tweets" for ::1 at 2021-09-23 19:56:46 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 5.0ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 9.1ms | Allocations: 2934)
+  [1m[36mTweet Load (0.6ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  Rendered tweets/_feed.html.erb (Duration: 26.1ms | Allocations: 5734)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 38.5ms | Allocations: 7683)
+  Rendered layout layouts/application.html.erb (Duration: 39.0ms | Allocations: 7778)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 1.9ms | Allocations: 8183)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"like", :controller=>"tweets", :id=>nil}, missing required keys: [:id]:
+  app/views/tweets/_feed.html.erb:32
+  app/views/tweets/_feed.html.erb:14
+  app/views/tweets/index.html.erb:10
+
+Started POST "/__better_errors/460cafa3371e44e4/variables" for ::1 at 2021-09-23 19:56:47 +0300
+Started GET "/tweets" for ::1 at 2021-09-23 19:58:49 +0300
+Processing by TweetsController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tweets_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 6.9ms | Allocations: 1574)
+  Rendered tweets/_form.html.erb (Duration: 9.0ms | Allocations: 2880)
+  [1m[36mTweet Load (0.6ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  Rendered tweets/_feed.html.erb (Duration: 40.8ms | Allocations: 10625)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 82.8ms | Allocations: 19515)
+  Rendered layout layouts/application.html.erb (Duration: 84.0ms | Allocations: 19611)
+Completed 500 Internal Server Error in 180ms (ActiveRecord: 6.5ms | Allocations: 24060)
+
+
+
+NoMethodError - undefined method `like_path' for #<ActionView::Base:0x0000000000f280>:
+  app/views/tweets/_feed.html.erb:32
+  app/views/tweets/_feed.html.erb:14
+  app/views/tweets/index.html.erb:10
+
+Started POST "/__better_errors/f739c8c6a11e25c7/variables" for ::1 at 2021-09-23 19:58:49 +0300
+Started GET "/tweets" for ::1 at 2021-09-23 20:10:03 +0300
+Processing by TweetsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tweets_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (38.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (38.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 44.2ms | Allocations: 1739)
+  Rendered tweets/_form.html.erb (Duration: 7.5ms | Allocations: 3043)
+  [1m[36mTweet Load (22.5ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (25.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 180.3ms | Allocations: 13665)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 1.1ms | Allocations: 125)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 298.5ms | Allocations: 22868)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2013.0ms | Allocations: 138021)
+Completed 200 OK in 2418ms (Views: 1985.0ms | ActiveRecord: 134.1ms | Allocations: 142733)
+
+
+Started POST "/tweets/7/likes" for ::1 at 2021-09-23 20:10:13 +0300
+Processing by LikesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"7"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "likes" WHERE "likes"."user_id" = ? AND "likes"."tweet_id" = ? LIMIT ?[0m  [["user_id", 3], ["tweet_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Create (57.2ms)[0m  [1m[32mINSERT INTO "likes" ("user_id", "tweet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["tweet_id", 7], ["created_at", "2021-09-23 17:10:13.826950"], ["updated_at", "2021-09-23 17:10:13.826950"]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (111.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 214ms (ActiveRecord: 170.0ms | Allocations: 9976)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:10:14 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 4.1ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 4.3ms | Allocations: 2953)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 39.0ms | Allocations: 10279)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 48.5ms | Allocations: 12314)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 56.5ms | Allocations: 16339)
+Completed 200 OK in 59ms (Views: 55.7ms | ActiveRecord: 1.9ms | Allocations: 16782)
+
+
+Started DELETE "/tweets/7/likes/1" for ::1 at 2021-09-23 20:10:18 +0300
+Processing by LikesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"7", "id"=>"1"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:13:in `destroy'
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."id" = ? AND "likes"."user_id" = ? AND "likes"."tweet_id" = ? LIMIT ?[0m  [["id", 1], ["user_id", 3], ["tweet_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:13:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+  [1m[36mLike Destroy (2.4ms)[0m  [1m[31mDELETE FROM "likes" WHERE "likes"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+  [1m[36mTRANSACTION (125.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 156ms (ActiveRecord: 129.7ms | Allocations: 5753)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:10:18 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 3.3ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 7.1ms | Allocations: 2946)
+  [1m[36mTweet Load (0.6ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 45.4ms | Allocations: 10244)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 53.9ms | Allocations: 12279)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 65.5ms | Allocations: 16302)
+Completed 200 OK in 68ms (Views: 64.1ms | ActiveRecord: 2.2ms | Allocations: 16744)
+
+
+Started GET "/tweets/7/edit" for ::1 at 2021-09-23 20:12:10 +0300
+Processing by TweetsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:71:in `set_tweet'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/edit.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 8.9ms | Allocations: 3041)
+  Rendered tweets/edit.html.erb within layouts/application (Duration: 67.2ms | Allocations: 3454)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 92.0ms | Allocations: 7522)
+Completed 200 OK in 208ms (Views: 92.9ms | ActiveRecord: 0.5ms | Allocations: 13162)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:13:07 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 10.6ms | Allocations: 1075)
+  Rendered tweets/_feed.html.erb (Duration: 2.0ms | Allocations: 1557)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 24.0ms | Allocations: 4118)
+  Rendered layout layouts/application.html.erb (Duration: 24.6ms | Allocations: 4214)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.6ms | Allocations: 5425)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <div class="column is-half">
+  <% if user_signed_in? %>
+	<article class="media box">
+		<figure class="media-left">
+			<p class="image is-64x64">
+				<%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.name) %>
+			</p>
+		</figure>
+		<div class="media-content">
+			 <%= render 'tweets/form' %>
+		</div>
+	</article>
+  <% end %>
+<% @tweets.each do | tweet | %>
+  <div class="box">
+  	<article class="media">
+  		<div class="media-left">
+  			<figure class="image is-64x64">
+  				<%= gravatar_image_tag(tweet.user.email, size: 64, alt: tweet.user.name) %>
+  			</figure>
+  		</div>
+  		<div class="media-content">
+  			<div class="content">
+  				<strong><%= tweet.user.name %></strong><br />
+  				<small><%= tweet.user.username %></small><br/>
+  				<p><%= tweet.tweet %></p>
+  				<p class='tweet-liking'>
+                  <%= like_or_dislike_btn(tweet), class: "button is-warning" %>
+				</p>
+  			</div>
+       <% if user_signed_in?  && current_user.id == tweet.user_id %>
+  			<nav class="level">
+  				<div class="level-left is-mobile">
+  					<%= link_to tweet, class: "level-item" do %>
+  					  <span class="icon"><i class="fa fa-link" aria-hidden="true"></i></span>
+  					<% end %>
+  					<%= link_to edit_tweet_path(tweet), class: "level-item" do %>
+  					  <span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+  					<% end %>
+  					<%= link_to tweet, method: :delete, data: { confirm: "Are you sure you want to delete this tweet?" } do %>
+  							<span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+  					<% end %>
+  				</div>
+  			</nav>
+        <% end %>
+  		</div>
+  	</article>
+  </div>
+<% end %>
+</div>:
+  app/views/tweets/index.html.erb:10
+
+Started POST "/__better_errors/f31bcd68604919a3/variables" for ::1 at 2021-09-23 20:13:07 +0300
+Started GET "/tweets" for ::1 at 2021-09-23 20:13:15 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 4.4ms | Allocations: 908)
+  Rendered tweets/_feed.html.erb (Duration: 2.5ms | Allocations: 1547)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 13.3ms | Allocations: 3497)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 3593)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.5ms | Allocations: 4000)
+
+
+
+ActionView::SyntaxErrorInTemplate - Encountered a syntax error while rendering template: check <div class="column is-half">
+  <% if user_signed_in? %>
+	<article class="media box">
+		<figure class="media-left">
+			<p class="image is-64x64">
+				<%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.name) %>
+			</p>
+		</figure>
+		<div class="media-content">
+			 <%= render 'tweets/form' %>
+		</div>
+	</article>
+  <% end %>
+<% @tweets.each do | tweet | %>
+  <div class="box">
+  	<article class="media">
+  		<div class="media-left">
+  			<figure class="image is-64x64">
+  				<%= gravatar_image_tag(tweet.user.email, size: 64, alt: tweet.user.name) %>
+  			</figure>
+  		</div>
+  		<div class="media-content">
+  			<div class="content">
+  				<strong><%= tweet.user.name %></strong><br />
+  				<small><%= tweet.user.username %></small><br/>
+  				<p><%= tweet.tweet %></p>
+  				<p class='tweet-liking'>
+                  <%= like_or_dislike_btn(tweet), class: "button is-warning" %>
+				</p>
+  			</div>
+       <% if user_signed_in?  && current_user.id == tweet.user_id %>
+  			<nav class="level">
+  				<div class="level-left is-mobile">
+  					<%= link_to tweet, class: "level-item" do %>
+  					  <span class="icon"><i class="fa fa-link" aria-hidden="true"></i></span>
+  					<% end %>
+  					<%= link_to edit_tweet_path(tweet), class: "level-item" do %>
+  					  <span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+  					<% end %>
+  					<%= link_to tweet, method: :delete, data: { confirm: "Are you sure you want to delete this tweet?" } do %>
+  							<span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+  					<% end %>
+  				</div>
+  			</nav>
+        <% end %>
+  		</div>
+  	</article>
+  </div>
+<% end %>
+</div>:
+  app/views/tweets/index.html.erb:10
+
+Started POST "/__better_errors/ff9e022dbe04a05a/variables" for ::1 at 2021-09-23 20:13:15 +0300
+Started POST "/__better_errors/ff9e022dbe04a05a/variables" for ::1 at 2021-09-23 20:13:46 +0300
+Started POST "/__better_errors/ff9e022dbe04a05a/variables" for ::1 at 2021-09-23 20:13:47 +0300
+Started GET "/tweets/7" for ::1 at 2021-09-23 20:14:01 +0300
+Processing by TweetsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:71:in `set_tweet'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/show.html.erb within layouts/application
+  Rendered tweets/show.html.erb within layouts/application (Duration: 15.0ms | Allocations: 193)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:45
+  Rendered layout layouts/application.html.erb (Duration: 48.8ms | Allocations: 5710)
+Completed 200 OK in 61ms (Views: 53.5ms | ActiveRecord: 0.5ms | Allocations: 7455)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:14:04 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 13.3ms | Allocations: 1075)
+  Rendered tweets/_form.html.erb (Duration: 10.2ms | Allocations: 3109)
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 77.5ms | Allocations: 11563)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.6ms | Allocations: 125)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 102.2ms | Allocations: 14452)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 117.9ms | Allocations: 18484)
+Completed 200 OK in 124ms (Views: 115.4ms | ActiveRecord: 3.8ms | Allocations: 19050)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:14:33 +0300
+Processing by TweetsController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tweets_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 7.8ms | Allocations: 1573)
+  Rendered tweets/_form.html.erb (Duration: 10.9ms | Allocations: 2892)
+  [1m[36mTweet Load (0.8ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 69.7ms | Allocations: 12910)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.2ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 113.9ms | Allocations: 21883)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 130.2ms | Allocations: 25946)
+Completed 200 OK in 152ms (Views: 124.7ms | ActiveRecord: 10.9ms | Allocations: 30323)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:14:37 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 6.7ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 10.7ms | Allocations: 2946)
+  [1m[36mTweet Load (0.6ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 60.6ms | Allocations: 10244)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 75.8ms | Allocations: 12279)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 90.1ms | Allocations: 16299)
+Completed 200 OK in 98ms (Views: 92.3ms | ActiveRecord: 3.2ms | Allocations: 16732)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:18:07 +0300
+Processing by TweetsController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tweets_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 5.4ms | Allocations: 1573)
+  Rendered tweets/_form.html.erb (Duration: 7.3ms | Allocations: 2892)
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 94.0ms | Allocations: 12921)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 132.0ms | Allocations: 21894)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 153.8ms | Allocations: 25957)
+Completed 200 OK in 258ms (Views: 151.3ms | ActiveRecord: 6.7ms | Allocations: 30308)
+
+
+Started POST "/tweets/7/likes" for ::1 at 2021-09-23 20:18:11 +0300
+Processing by LikesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "likes" WHERE "likes"."user_id" = ? AND "likes"."tweet_id" = ? LIMIT ?[0m  [["user_id", 3], ["tweet_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Create (166.4ms)[0m  [1m[32mINSERT INTO "likes" ("user_id", "tweet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["tweet_id", 7], ["created_at", "2021-09-23 17:18:11.473433"], ["updated_at", "2021-09-23 17:18:11.473433"]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (527.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 734ms (ActiveRecord: 696.1ms | Allocations: 9801)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:18:12 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 7.6ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 8.9ms | Allocations: 2948)
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 56.8ms | Allocations: 10281)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 73.5ms | Allocations: 12316)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 86.1ms | Allocations: 16648)
+Completed 200 OK in 90ms (Views: 84.9ms | ActiveRecord: 3.0ms | Allocations: 17091)
+
+
+Started DELETE "/tweets/7/likes/1" for ::1 at 2021-09-23 20:18:14 +0300
+Processing by LikesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"7", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:13:in `destroy'
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."id" = ? AND "likes"."user_id" = ? AND "likes"."tweet_id" = ? LIMIT ?[0m  [["id", 1], ["user_id", 3], ["tweet_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:13:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+  [1m[36mLike Destroy (3.6ms)[0m  [1m[31mDELETE FROM "likes" WHERE "likes"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+  [1m[36mTRANSACTION (382.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 409ms (ActiveRecord: 386.5ms | Allocations: 5485)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:18:14 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 4.2ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 5.7ms | Allocations: 2946)
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 38.3ms | Allocations: 10256)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 47.7ms | Allocations: 12291)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 55.6ms | Allocations: 16314)
+Completed 200 OK in 57ms (Views: 53.9ms | ActiveRecord: 2.4ms | Allocations: 16755)
+
+
+Started POST "/tweets/7/likes" for ::1 at 2021-09-23 20:18:16 +0300
+Processing by LikesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "likes" WHERE "likes"."user_id" = ? AND "likes"."tweet_id" = ? LIMIT ?[0m  [["user_id", 3], ["tweet_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTweet Load (0.1ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Create (0.6ms)[0m  [1m[32mINSERT INTO "likes" ("user_id", "tweet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["tweet_id", 7], ["created_at", "2021-09-23 17:18:16.893101"], ["updated_at", "2021-09-23 17:18:16.893101"]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (106.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 147ms (ActiveRecord: 108.3ms | Allocations: 7216)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:18:17 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 4.3ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 6.3ms | Allocations: 2946)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 58.1ms | Allocations: 10268)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 67.1ms | Allocations: 12303)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 80.5ms | Allocations: 16362)
+Completed 200 OK in 82ms (Views: 78.7ms | ActiveRecord: 2.5ms | Allocations: 16804)
+
+
+Started DELETE "/tweets/7/likes/1" for ::1 at 2021-09-23 20:18:19 +0300
+Processing by LikesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"7", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:13:in `destroy'
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."id" = ? AND "likes"."user_id" = ? AND "likes"."tweet_id" = ? LIMIT ?[0m  [["id", 1], ["user_id", 3], ["tweet_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:13:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+  [1m[36mLike Destroy (1.1ms)[0m  [1m[31mDELETE FROM "likes" WHERE "likes"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+  [1m[36mTRANSACTION (179.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 211ms (ActiveRecord: 181.3ms | Allocations: 5412)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:18:19 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 5.3ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 11.1ms | Allocations: 2950)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 59.3ms | Allocations: 10260)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 73.1ms | Allocations: 12295)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 86.8ms | Allocations: 16627)
+Completed 200 OK in 90ms (Views: 85.0ms | ActiveRecord: 2.8ms | Allocations: 17069)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:19:11 +0300
+Processing by TweetsController#index as HTML
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tweets_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 7.0ms | Allocations: 1573)
+  Rendered tweets/_form.html.erb (Duration: 6.0ms | Allocations: 2891)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (21.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 78.7ms | Allocations: 12921)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 125.3ms | Allocations: 21894)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 239.2ms | Allocations: 25957)
+Completed 200 OK in 264ms (Views: 213.0ms | ActiveRecord: 31.2ms | Allocations: 30331)
+
+
+Started POST "/tweets/7/likes" for ::1 at 2021-09-23 20:19:17 +0300
+Processing by LikesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "likes" WHERE "likes"."user_id" = ? AND "likes"."tweet_id" = ? LIMIT ?[0m  [["user_id", 3], ["tweet_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Create (1.4ms)[0m  [1m[32mINSERT INTO "likes" ("user_id", "tweet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["tweet_id", 7], ["created_at", "2021-09-23 17:19:17.246269"], ["updated_at", "2021-09-23 17:19:17.246269"]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (200.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 277ms (ActiveRecord: 204.0ms | Allocations: 9792)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:19:17 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 7.3ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 9.4ms | Allocations: 2949)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 54.5ms | Allocations: 10282)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 69.5ms | Allocations: 12317)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 79.4ms | Allocations: 16377)
+Completed 200 OK in 82ms (Views: 78.0ms | ActiveRecord: 2.2ms | Allocations: 16819)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:19:25 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 4.3ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 7.2ms | Allocations: 2948)
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 56.1ms | Allocations: 10270)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 71.5ms | Allocations: 12305)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 84.8ms | Allocations: 16360)
+Completed 200 OK in 90ms (Views: 83.4ms | ActiveRecord: 2.7ms | Allocations: 16794)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:20:00 +0300
+Processing by TweetsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tweets_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 7.1ms | Allocations: 1573)
+  Rendered tweets/_form.html.erb (Duration: 8.1ms | Allocations: 2891)
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (1.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 84.3ms | Allocations: 14775)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 119.3ms | Allocations: 23748)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 131.8ms | Allocations: 27811)
+Completed 200 OK in 158ms (Views: 125.4ms | ActiveRecord: 10.5ms | Allocations: 32186)
+
+
+Started DELETE "/tweets/7/likes/1" for ::1 at 2021-09-23 20:20:03 +0300
+Processing by LikesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"7", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:13:in `destroy'
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."id" = ? AND "likes"."user_id" = ? AND "likes"."tweet_id" = ? LIMIT ?[0m  [["id", 1], ["user_id", 3], ["tweet_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:13:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+  [1m[36mLike Destroy (0.6ms)[0m  [1m[31mDELETE FROM "likes" WHERE "likes"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+  [1m[36mTRANSACTION (156.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 186ms (ActiveRecord: 158.0ms | Allocations: 5582)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:20:03 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 6.4ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 7.8ms | Allocations: 2950)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 50.7ms | Allocations: 10260)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 64.2ms | Allocations: 12295)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 77.9ms | Allocations: 16355)
+Completed 200 OK in 80ms (Views: 76.5ms | ActiveRecord: 2.6ms | Allocations: 16797)
+
+
+Started POST "/tweets/7/likes" for ::1 at 2021-09-23 20:20:05 +0300
+Processing by LikesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "likes" WHERE "likes"."user_id" = ? AND "likes"."tweet_id" = ? LIMIT ?[0m  [["user_id", 3], ["tweet_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Create (0.8ms)[0m  [1m[32mINSERT INTO "likes" ("user_id", "tweet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["tweet_id", 7], ["created_at", "2021-09-23 17:20:05.197580"], ["updated_at", "2021-09-23 17:20:05.197580"]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (103.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 145ms (ActiveRecord: 105.9ms | Allocations: 7957)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:20:05 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 5.0ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 8.9ms | Allocations: 2948)
+  [1m[36mTweet Load (0.6ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 49.4ms | Allocations: 10270)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 61.9ms | Allocations: 12305)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 72.9ms | Allocations: 16364)
+Completed 200 OK in 75ms (Views: 70.7ms | ActiveRecord: 3.0ms | Allocations: 16805)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:20:59 +0300
+Processing by TweetsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tweets_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 7.6ms | Allocations: 1573)
+  Rendered tweets/_form.html.erb (Duration: 10.1ms | Allocations: 2892)
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 84.9ms | Allocations: 14776)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.2ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 142.6ms | Allocations: 23749)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 158.0ms | Allocations: 27812)
+Completed 200 OK in 181ms (Views: 144.7ms | ActiveRecord: 20.3ms | Allocations: 32186)
+
+
+Started DELETE "/tweets/7/likes/1" for ::1 at 2021-09-23 20:21:01 +0300
+Processing by LikesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"7", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:13:in `destroy'
+  [1m[36mLike Load (0.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."id" = ? AND "likes"."user_id" = ? AND "likes"."tweet_id" = ? LIMIT ?[0m  [["id", 1], ["user_id", 3], ["tweet_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:13:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+  [1m[36mLike Destroy (1.5ms)[0m  [1m[31mDELETE FROM "likes" WHERE "likes"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+  [1m[36mTRANSACTION (734.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 771ms (ActiveRecord: 737.5ms | Allocations: 5552)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:21:02 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 4.1ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 9.1ms | Allocations: 2948)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 52.3ms | Allocations: 10258)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 61.6ms | Allocations: 12293)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 72.7ms | Allocations: 16317)
+Completed 200 OK in 75ms (Views: 71.6ms | ActiveRecord: 1.9ms | Allocations: 16759)
+
+
+Started POST "/tweets/7/likes" for ::1 at 2021-09-23 20:21:04 +0300
+Processing by LikesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"7"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "likes" WHERE "likes"."user_id" = ? AND "likes"."tweet_id" = ? LIMIT ?[0m  [["user_id", 3], ["tweet_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTweet Load (0.9ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Create (0.5ms)[0m  [1m[32mINSERT INTO "likes" ("user_id", "tweet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["tweet_id", 7], ["created_at", "2021-09-23 17:21:04.545778"], ["updated_at", "2021-09-23 17:21:04.545778"]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (301.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 355ms (ActiveRecord: 303.3ms | Allocations: 7999)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:21:04 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 6.6ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 6.4ms | Allocations: 2948)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 53.7ms | Allocations: 10270)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 66.1ms | Allocations: 12305)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 88.9ms | Allocations: 16535)
+Completed 200 OK in 92ms (Views: 87.4ms | ActiveRecord: 2.5ms | Allocations: 17044)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:21:27 +0300
+Processing by TweetsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tweets_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 7.3ms | Allocations: 1597)
+  Rendered tweets/_form.html.erb (Duration: 5.7ms | Allocations: 2893)
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 67.5ms | Allocations: 14777)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 106.0ms | Allocations: 23774)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 116.5ms | Allocations: 27837)
+Completed 200 OK in 250ms (Views: 112.3ms | ActiveRecord: 7.8ms | Allocations: 32211)
+
+
+Started DELETE "/tweets/7/likes/1" for ::1 at 2021-09-23 20:21:31 +0300
+Processing by LikesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"7", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:13:in `destroy'
+  [1m[36mLike Load (1.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."id" = ? AND "likes"."user_id" = ? AND "likes"."tweet_id" = ? LIMIT ?[0m  [["id", 1], ["user_id", 3], ["tweet_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:13:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+  [1m[36mLike Destroy (2.5ms)[0m  [1m[31mDELETE FROM "likes" WHERE "likes"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+  [1m[36mTRANSACTION (77.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 107ms (ActiveRecord: 81.4ms | Allocations: 5435)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:21:32 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 5.0ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 7.2ms | Allocations: 2948)
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 62.8ms | Allocations: 10258)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 74.2ms | Allocations: 12595)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 89.2ms | Allocations: 16655)
+Completed 200 OK in 93ms (Views: 88.8ms | ActiveRecord: 2.3ms | Allocations: 17097)
+
+
+Started POST "/tweets/7/likes" for ::1 at 2021-09-23 20:21:34 +0300
+Processing by LikesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "likes" WHERE "likes"."user_id" = ? AND "likes"."tweet_id" = ? LIMIT ?[0m  [["user_id", 3], ["tweet_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Create (2.0ms)[0m  [1m[32mINSERT INTO "likes" ("user_id", "tweet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["tweet_id", 7], ["created_at", "2021-09-23 17:21:34.460028"], ["updated_at", "2021-09-23 17:21:34.460028"]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (88.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 143ms (ActiveRecord: 91.9ms | Allocations: 7297)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:21:34 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 3.8ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 8.0ms | Allocations: 2949)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.8ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 55.4ms | Allocations: 10271)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 64.7ms | Allocations: 12306)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 77.9ms | Allocations: 16329)
+Completed 200 OK in 80ms (Views: 76.1ms | ActiveRecord: 2.8ms | Allocations: 16770)
+
+
+Started DELETE "/tweets/7/likes/1" for ::1 at 2021-09-23 20:35:38 +0300
+Started DELETE "/tweets/7/likes/1" for ::1 at 2021-09-23 20:35:40 +0300
+Processing by LikesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"7", "id"=>"1"}
+Processing by LikesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"7", "id"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/likes_controller.rb:13:in `destroy'
+  ↳ app/controllers/likes_controller.rb:13:in `destroy'
+  [1m[36mUser Load (54.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:13:in `destroy'
+  ↳ app/controllers/likes_controller.rb:13:in `destroy'
+  [1m[36mLike Load (22.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."id" = ? AND "likes"."user_id" = ? AND "likes"."tweet_id" = ? LIMIT ?[0m  [["id", 1], ["user_id", 3], ["tweet_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:13:in `destroy'
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."id" = ? AND "likes"."user_id" = ? AND "likes"."tweet_id" = ? LIMIT ?[0m  [["id", 1], ["user_id", 3], ["tweet_id", 7], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:13:in `destroy'
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+  [1m[36mLike Destroy (342.5ms)[0m  [1m[31mDELETE FROM "likes" WHERE "likes"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+  [1m[36mTRANSACTION (96.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mLike Destroy (5372.5ms)[0m  [1m[31mDELETE FROM "likes" WHERE "likes"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 5998ms (ActiveRecord: 515.7ms | Allocations: 10152)
+
+
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+Completed 500 Internal Server Error in 6188ms (ActiveRecord: 5373.9ms | Allocations: 11587)
+
+
+
+ActiveRecord::StatementInvalid - SQLite3::BusyException: database is locked:
+  app/controllers/likes_controller.rb:15:in `destroy'
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:35:52 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (20.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 24.3ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 6.4ms | Allocations: 2948)
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 42.4ms | Allocations: 10308)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 72.6ms | Allocations: 12343)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 1014.8ms | Allocations: 16403)
+Completed 200 OK in 1017ms (Views: 993.5ms | ActiveRecord: 22.3ms | Allocations: 16845)
+
+
+Started POST "/tweets/6/likes" for ::1 at 2021-09-23 20:36:02 +0300
+Processing by LikesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "likes" WHERE "likes"."user_id" = ? AND "likes"."tweet_id" = ? LIMIT ?[0m  [["user_id", 3], ["tweet_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Create (1.1ms)[0m  [1m[32mINSERT INTO "likes" ("user_id", "tweet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["tweet_id", 6], ["created_at", "2021-09-23 17:36:02.378591"], ["updated_at", "2021-09-23 17:36:02.378591"]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (491.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 520ms (ActiveRecord: 493.7ms | Allocations: 7431)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:36:02 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 9.9ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 5.8ms | Allocations: 2949)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 52.5ms | Allocations: 10271)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 72.0ms | Allocations: 12306)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 83.4ms | Allocations: 16365)
+Completed 200 OK in 86ms (Views: 81.9ms | ActiveRecord: 2.6ms | Allocations: 16806)
+
+
+Started POST "/tweets/7/likes" for ::1 at 2021-09-23 20:36:18 +0300
+Processing by LikesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "likes" WHERE "likes"."user_id" = ? AND "likes"."tweet_id" = ? LIMIT ?[0m  [["user_id", 3], ["tweet_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Create (0.8ms)[0m  [1m[32mINSERT INTO "likes" ("user_id", "tweet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["tweet_id", 7], ["created_at", "2021-09-23 17:36:18.990236"], ["updated_at", "2021-09-23 17:36:18.990236"]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (99.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 148ms (ActiveRecord: 101.6ms | Allocations: 7210)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:36:19 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 4.5ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 8.6ms | Allocations: 2948)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 55.2ms | Allocations: 10282)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 65.4ms | Allocations: 12317)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 77.9ms | Allocations: 16340)
+Completed 200 OK in 80ms (Views: 77.0ms | ActiveRecord: 2.2ms | Allocations: 16781)
+
+
+Started POST "/tweets/5/likes" for ::1 at 2021-09-23 20:36:22 +0300
+Processing by LikesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "likes" WHERE "likes"."user_id" = ? AND "likes"."tweet_id" = ? LIMIT ?[0m  [["user_id", 3], ["tweet_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTweet Load (0.1ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Create (8.7ms)[0m  [1m[32mINSERT INTO "likes" ("user_id", "tweet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["tweet_id", 5], ["created_at", "2021-09-23 17:36:22.993120"], ["updated_at", "2021-09-23 17:36:22.993120"]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (141.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 188ms (ActiveRecord: 151.2ms | Allocations: 7399)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:36:23 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 4.1ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 9.4ms | Allocations: 2948)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 59.3ms | Allocations: 10294)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 69.7ms | Allocations: 12329)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 83.9ms | Allocations: 16388)
+Completed 200 OK in 88ms (Views: 82.3ms | ActiveRecord: 3.3ms | Allocations: 16830)
+
+
+Started POST "/tweets/4/likes" for ::1 at 2021-09-23 20:36:26 +0300
+Processing by LikesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "likes" WHERE "likes"."user_id" = ? AND "likes"."tweet_id" = ? LIMIT ?[0m  [["user_id", 3], ["tweet_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Create (1.0ms)[0m  [1m[32mINSERT INTO "likes" ("user_id", "tweet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["tweet_id", 4], ["created_at", "2021-09-23 17:36:26.432885"], ["updated_at", "2021-09-23 17:36:26.432885"]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (106.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 154ms (ActiveRecord: 108.2ms | Allocations: 7210)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:36:26 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 5.6ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 8.2ms | Allocations: 2950)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  Rendered tweets/_feed.html.erb (Duration: 53.7ms | Allocations: 10308)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 71.7ms | Allocations: 12343)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 86.4ms | Allocations: 16674)
+Completed 200 OK in 91ms (Views: 85.6ms | ActiveRecord: 3.5ms | Allocations: 17115)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:41:50 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (67.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 27.0ms | Allocations: 1075)
+  Rendered tweets/_form.html.erb (Duration: 83.1ms | Allocations: 3107)
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 7]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 6]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (6.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 5]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 4]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  Rendered tweets/_feed.html.erb (Duration: 164.7ms | Allocations: 15040)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 1.2ms | Allocations: 125)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 317.6ms | Allocations: 17940)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 1154.5ms | Allocations: 22472)
+Completed 200 OK in 1310ms (Views: 1189.8ms | ActiveRecord: 78.7ms | Allocations: 23710)
+
+
+Started DELETE "/tweets/7/likes/2" for ::1 at 2021-09-23 20:42:15 +0300
+Processing by LikesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"7", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:13:in `destroy'
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."id" = ? AND "likes"."user_id" = ? AND "likes"."tweet_id" = ? LIMIT ?[0m  [["id", 2], ["user_id", 3], ["tweet_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:13:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+  [1m[36mLike Destroy (76.3ms)[0m  [1m[31mDELETE FROM "likes" WHERE "likes"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+  [1m[36mTRANSACTION (105.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 209ms (ActiveRecord: 182.3ms | Allocations: 5297)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:42:15 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 7.2ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 8.7ms | Allocations: 2952)
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 7]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 6]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 5]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 4]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  Rendered tweets/_feed.html.erb (Duration: 70.3ms | Allocations: 14046)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 84.2ms | Allocations: 16081)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 96.2ms | Allocations: 20141)
+Completed 200 OK in 101ms (Views: 93.1ms | ActiveRecord: 4.4ms | Allocations: 20584)
+
+
+Started POST "/tweets/7/likes" for ::1 at 2021-09-23 20:42:21 +0300
+Processing by LikesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "likes" WHERE "likes"."user_id" = ? AND "likes"."tweet_id" = ? LIMIT ?[0m  [["user_id", 3], ["tweet_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTweet Load (0.1ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mLike Create (3.9ms)[0m  [1m[32mINSERT INTO "likes" ("user_id", "tweet_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["tweet_id", 7], ["created_at", "2021-09-23 17:42:21.410223"], ["updated_at", "2021-09-23 17:42:21.410223"]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (99.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 163ms (ActiveRecord: 104.4ms | Allocations: 7210)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:42:21 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 4.3ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 7.0ms | Allocations: 2948)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 7]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 6]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 5]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 4]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  Rendered tweets/_feed.html.erb (Duration: 74.6ms | Allocations: 14017)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.2ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 90.4ms | Allocations: 16052)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 98.5ms | Allocations: 20111)
+Completed 200 OK in 102ms (Views: 95.8ms | ActiveRecord: 4.1ms | Allocations: 20552)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:43:16 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 9.5ms | Allocations: 1075)
+  Rendered tweets/_form.html.erb (Duration: 17.2ms | Allocations: 3108)
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 7]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 6]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 5]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 4]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  Rendered tweets/_feed.html.erb (Duration: 104.1ms | Allocations: 14492)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.6ms | Allocations: 128)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 131.9ms | Allocations: 17392)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 146.2ms | Allocations: 21960)
+Completed 200 OK in 152ms (Views: 143.5ms | ActiveRecord: 5.9ms | Allocations: 23199)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:44:37 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 19.7ms | Allocations: 1075)
+  Rendered tweets/_form.html.erb (Duration: 10.2ms | Allocations: 3107)
+  [1m[36mTweet Load (2.0ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 7]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 6]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 5]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 4]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  Rendered tweets/_feed.html.erb (Duration: 111.6ms | Allocations: 14488)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.6ms | Allocations: 125)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 150.7ms | Allocations: 17379)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 173.6ms | Allocations: 21947)
+Completed 200 OK in 187ms (Views: 173.7ms | ActiveRecord: 7.1ms | Allocations: 23186)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:44:41 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 5.0ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 9.8ms | Allocations: 2951)
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 7]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 6]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 5]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 4]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  Rendered tweets/_feed.html.erb (Duration: 102.5ms | Allocations: 13753)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 114.4ms | Allocations: 15788)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 140.1ms | Allocations: 19845)
+Completed 200 OK in 145ms (Views: 137.1ms | ActiveRecord: 5.8ms | Allocations: 20280)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:45:19 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 12.2ms | Allocations: 1076)
+  Rendered tweets/_form.html.erb (Duration: 12.6ms | Allocations: 3109)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.8ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 7]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 6]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 5]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 4]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  Rendered tweets/_feed.html.erb (Duration: 100.9ms | Allocations: 14488)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.4ms | Allocations: 125)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 125.8ms | Allocations: 17384)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 138.0ms | Allocations: 21952)
+Completed 200 OK in 149ms (Views: 138.2ms | ActiveRecord: 5.2ms | Allocations: 23204)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:45:23 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 5.5ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 10.0ms | Allocations: 2951)
+  [1m[36mTweet Load (0.7ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 7]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 6]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 5]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 4]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  Rendered tweets/_feed.html.erb (Duration: 113.5ms | Allocations: 13753)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.2ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 129.0ms | Allocations: 15788)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 145.3ms | Allocations: 19812)
+Completed 200 OK in 148ms (Views: 141.0ms | ActiveRecord: 5.4ms | Allocations: 20246)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:45:44 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 9.2ms | Allocations: 1075)
+  Rendered tweets/_form.html.erb (Duration: 22.9ms | Allocations: 3107)
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 7]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 6]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 5]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 4]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  Rendered tweets/_feed.html.erb (Duration: 133.1ms | Allocations: 14487)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.6ms | Allocations: 128)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 159.4ms | Allocations: 17382)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 176.6ms | Allocations: 21950)
+Completed 200 OK in 190ms (Views: 181.2ms | ActiveRecord: 5.9ms | Allocations: 23189)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:47:04 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (31.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 24.5ms | Allocations: 1075)
+  Rendered tweets/_form.html.erb (Duration: 11.8ms | Allocations: 3109)
+  [1m[36mTweet Load (1.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 7]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 6]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 5]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 4]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  Rendered tweets/_feed.html.erb (Duration: 92.1ms | Allocations: 14488)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 1.9ms | Allocations: 125)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 197.9ms | Allocations: 17384)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 724.4ms | Allocations: 21953)
+Completed 200 OK in 876ms (Views: 818.7ms | ActiveRecord: 37.1ms | Allocations: 23192)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:48:03 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 15.3ms | Allocations: 1075)
+  Rendered tweets/_form.html.erb (Duration: 12.6ms | Allocations: 3107)
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 7]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 6]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 5]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (1.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 4]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  Rendered tweets/_feed.html.erb (Duration: 108.4ms | Allocations: 14489)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 2.4ms | Allocations: 125)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 144.5ms | Allocations: 17378)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 168.0ms | Allocations: 21950)
+Completed 200 OK in 187ms (Views: 177.1ms | ActiveRecord: 6.2ms | Allocations: 23183)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:48:28 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 21.3ms | Allocations: 1079)
+  Rendered tweets/_form.html.erb (Duration: 12.7ms | Allocations: 3108)
+  [1m[36mTweet Load (1.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 7]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 6]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 5]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 4]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  Rendered tweets/_feed.html.erb (Duration: 97.8ms | Allocations: 14489)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.3ms | Allocations: 125)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 134.4ms | Allocations: 17390)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 149.4ms | Allocations: 21962)
+Completed 200 OK in 159ms (Views: 149.2ms | ActiveRecord: 7.3ms | Allocations: 23201)
+
+
+Started DELETE "/tweets/6/likes/1" for ::1 at 2021-09-23 20:48:35 +0300
+Processing by LikesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"6", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:13:in `destroy'
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."id" = ? AND "likes"."user_id" = ? AND "likes"."tweet_id" = ? LIMIT ?[0m  [["id", 1], ["user_id", 3], ["tweet_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:13:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+  [1m[36mLike Destroy (43.4ms)[0m  [1m[31mDELETE FROM "likes" WHERE "likes"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+  [1m[36mTRANSACTION (120.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 185ms (ActiveRecord: 164.2ms | Allocations: 5410)
+
+
+Started GET "/tweets" for ::1 at 2021-09-23 20:48:35 +0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:5
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  Rendered tweets/_profile.html.erb (Duration: 5.0ms | Allocations: 908)
+  Rendered tweets/_form.html.erb (Duration: 7.6ms | Allocations: 2951)
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 7]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 6]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 5]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:19
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."tweet_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["tweet_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `like_or_dislike_btn'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."tweet_id" = ?[0m  [["tweet_id", 4]]
+  ↳ app/views/tweets/_feed.html.erb:29
+  Rendered tweets/_feed.html.erb (Duration: 117.4ms | Allocations: 14016)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.1ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 129.1ms | Allocations: 16051)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 140.0ms | Allocations: 20107)
+Completed 200 OK in 143ms (Views: 137.4ms | ActiveRecord: 3.6ms | Allocations: 20549)
+
+
