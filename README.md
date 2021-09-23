@@ -18,7 +18,6 @@ To get a local copy up and running follow these simple example steps.
 
 - Ruby v2.7.2
 - Ruby on Rails v6.1.4
-- Postgres: >=9.5
 
 ### Setup
 
@@ -27,14 +26,6 @@ Instal gems with:
 ```
 bundle install
 ```
-
-Setup database with:
-
-```
-   rails db:create
-   rails db:migrate
-```
-
 
 ### Usage
 
