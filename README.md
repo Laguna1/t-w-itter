@@ -2,9 +2,10 @@
 
 ### Twitter 
 - user: registration, login, logout, 
-- tweet: create, edit, show tweets.
+- tweet: create, edit, show tweets
+- like/dislike tweets for logged_in users
 - Using bulma styles.
-- Functions not yet implemented - like / dislike, user`s following
+- Functions not yet implemented - user`s following
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
@@ -18,7 +19,6 @@ To get a local copy up and running follow these simple example steps.
 
 - Ruby v2.7.2
 - Ruby on Rails v6.1.4
-- Postgres: >=9.5
 
 ### Setup
 
@@ -27,14 +27,6 @@ Instal gems with:
 ```
 bundle install
 ```
-
-Setup database with:
-
-```
-   rails db:create
-   rails db:migrate
-```
-
 
 ### Usage
 
